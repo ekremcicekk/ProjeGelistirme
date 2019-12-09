@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% endwith %}
+
+
+
+<br><br>
+<h2>Programlam Dilleri</h2><br><br>
+
+
+<div class="container">
+    <div class="row justify-contend-around">
+        <div class="col">
+            <div class="card " style="min-width: 12rem; max-width: 18rem;">
+                <img src="https://banner2.cleanpng.com/20180320/fkq/kisspng-angle-text-symbol-brand-other-python-5ab0c09b32b4d1.7494578715215330832077.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Python</h5>
+                    <p class="card-text">Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve
+                        etkileşimli yüksek seviyeli bir programlama dilidir. </p>
+                    <a href="#" class="btn btn-primary">Eğitime Katıl</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card " style="min-width: 12rem; max-width: 18rem;">
+                <img src="https://banner2.cleanpng.com/20180320/fkq/kisspng-angle-text-symbol-brand-other-python-5ab0c09b32b4d1.7494578715215330832077.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Python</h5>
+                    <p class="card-text">Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve
+                        etkileşimli yüksek seviyeli bir programlama dilidir. </p>
+                    <a href="#" class="btn btn-primary">Eğitime Katıl</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card " style="min-width: 12rem; max-width: 18rem;">
+                <img src="https://banner2.cleanpng.com/20180320/fkq/kisspng-angle-text-symbol-brand-other-python-5ab0c09b32b4d1.7494578715215330832077.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Python</h5>
+                    <p class="card-text">Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve
+                        etkileşimli yüksek seviyeli bir programlama dilidir. </p>
+                    <a href="#" class="btn btn-primary">Eğitime Katıl</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card " style="min-width: 12rem; max-width: 18rem;">
+                <img src="https://banner2.cleanpng.com/20180320/fkq/kisspng-angle-text-symbol-brand-other-python-5ab0c09b32b4d1.7494578715215330832077.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Python</h5>
+                    <p class="card-text">Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve
+                        etkileşimli yüksek seviyeli bir programlama dilidir. </p>
+                    <a href="#" class="btn btn-primary">Eğitime Katıl</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Vel, est amet. Ab, assumenda enim! Voluptatibus, officia?
+    Fugit dolor delectus consequatur itaque ratione aliquid beatae?
+    Aspernatur saepe quas magni eligendi debitis nihil nostrum!
+    Voluptatum rerum nostrum possimus quibusdam eveniet, laborum in.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Vel, est amet. Ab, assumenda enim! Voluptatibus, officia?
+    Fugit dolor delectus consequatur itaque ratione aliquid beatae?
+    Aspernatur saepe quas magni eligendi debitis nihil nostrum!
+    Voluptatum rerum nostrum possimus quibusdam eveniet, laborum in.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Vel, est amet. Ab, assumenda enim! Voluptatibus, officia?
+    Fugit dolor delectus consequatur itaque ratione aliquid beatae?
+    Aspernatur saepe quas magni eligendi debitis nihil nostrum!
+    Voluptatum rerum nostrum possimus quibusdam eveniet, laborum in.</p>
+
+
+{% endblock %}

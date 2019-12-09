@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>öğrenme ortamı</title>
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="{{ url_for('static', filename='js/solid.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/fontawesome.js') }}"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a class="nav-link" href="{{ url_for('index')}}">
+                    <h3>Programlama</h3>
+                </a>
+
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menü</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ana
+                        Sayfa</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Hakkımızda</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Programlama Dilleri</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Python</a>
+                        </li>
+                        <li>
+                            <a href="#">C prog.</a>
+                        </li>
+                        <li>
+                            <a href="#">Rust</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Eğitimler</a>
+                </li>
+                <li>
+                    <a href="#">İletişim</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Proje Hakkında</a>
+                </li>
+                <li>
+                    <a href="#" class="article">Testler</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #6d7fcc;">
+                        <i class="fas fa-align-left"></i>
+                        <span> </span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Buton1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Buton2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Buton3</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Buton4</a>
+                            </li>
+
+                            {% if current_user.name %}
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                                    aria-haspopup="false">
+                                    <i class="fa fa-user"></i>
+                                    {{ current_user.name }}
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right animate slideIn"
+                                    aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url_for('user') }}">Profil</a>
+                                    <a class="dropdown-item" href="{{ url_for('user_settings') }}">Ayarlar</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Çıkış yap</a>
+                                </div>
+                            </li>
+                            {% endif %}
+
+                            {% if current_user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('logout') }}">Çıkış Yap</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('login') }}">Giriş Yap</a>
+                                </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('register') }}">Kaydol</a>
+                            </li>
+                            {% endif %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('contact') }}">Mesaj Gönder</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+
+            {% block content %}
+            {% endblock %}
+
+
+
+
+        </div>
+    </div>
+
+    <!-- jQuery - Slim version (=without AJAX) -->
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.slim.min.js') }}"></script>
+    <!-- Popper.JS -->
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- jQuery Custom Scroller  -->
+    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/wsitejs.js') }}"></script>
+
+</body>
+
+</html>
+
